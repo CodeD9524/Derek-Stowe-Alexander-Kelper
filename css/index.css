@@ -1,0 +1,27 @@
+body {
+    background-color: orange;
+    color: blue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+h1 {
+font-style: oblique;
+}
+h2 {
+ font-size: xx-large;
+ font-weight: 500;
+ color: bisque;
+ font-style: italic;
+ padding-bottom: 52px;
+}
+.Experience-section li {
+    display: block;
+  }
+  #bout {
+    text-align: right;
+    color: aliceblue;
+  }
+  
+  #links {
+    font-style: italic;
+    color: greenyellow;
+  }
