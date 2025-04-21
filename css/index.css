@@ -7,14 +7,15 @@ h1 {
 font-style: oblique;
 }
 h2 {
- font-size: xx-large;
+ font-size:large;
  font-weight: 500;
- color: bisque;
+ color: rgb(5, 4, 2);
  font-style: italic;
  padding-bottom: 52px;
 }
 .Experience-section li {
     display: block;
+    
   }
   #bout {
     text-align: right;
@@ -25,3 +26,44 @@ h2 {
     font-style: italic;
     color: greenyellow;
   }
+  .experience-section {
+    display: flex;
+    flex-direction: column; 
+    color: darkblue;
+}
+
+.experience-item {
+    display: flex; 
+    align-items: flex-start; 
+    margin-bottom: 20px; 
+    border-bottom: 1px solid #ccc; 
+    padding: 10px 0; 
+}
+
+.job-title {
+    flex: 1;  
+    font-size: 18px; 
+}
+.job-date {
+    margin-left: 20px; 
+    font-style: italic;
+}
+
+.job-description {
+    margin-top: 5px; 
+    flex-basis: 100%;
+    font-size: 14px; 
+    color: #333; 
+}
+#links ul {
+  display: flex;
+  list-style: none;       
+}
+#links ul li a {
+  display: inline-block;
+  padding: 8px 12px;
+  text-decoration: dotted;
+  color: rgb(84, 134, 168);
+  font-weight: bold;
+
+}
