@@ -25,6 +25,11 @@ h2 {
     font-style: italic;
     color: greenyellow;
   }  
+  footer {
+    background-color: #34436f;
+    text-align: center;
+    padding: 10px;
+  }
   /* BIG tablet */
   @media only screen and (max-width: 1300px) {
     body {

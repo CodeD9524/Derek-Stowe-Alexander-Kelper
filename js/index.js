@@ -1,7 +1,4 @@
 const footer = document.createElement('footer');
-footer.style.textAlign = 'center';
-footer.style.padding = '10px';
-footer.style.backgroundColor = '#f2f3f6';
 let today = new Date();
 let thisYear = today.getFullYear();
 let copyright = document.createElement('p');
