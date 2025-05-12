@@ -105,48 +105,91 @@ h2 {
     }
   }
   #Skills ul {
-
-
     display: flex;
-  
     flex-wrap: wrap;
-  
     justify-content: center;
-  
     padding: 0;
-  
-    list-style-type: none; /* Optional: remove bullets */
-  
+    list-style-type: none; 
   }
-  
   #Skills ul li {
-  
     margin: 10px 15px;
-  
     padding: 5px 10px;
-  
     background-color: #e0e0e0; 
-  
     border-radius: 4px;
-  
   }
-  
-  @media (max-width: 800px) {
+  @media (max-width: 450px) {
   
     #Skills ul {
-  
       flex-direction: column-reverse;
-  
       align-items: center;
-  
     }
-  
     #Skills ul li {
-  
       margin: 8px 0;
-  
     }
-  
+form[name="leave_message"] {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+form[name="leave_message"] input[type="text"],
+form[name="leave_message"] input[type="email"],
+form[name="leave_message"] textarea {
+  width: 100%;              
+  padding: 12px 15px;      
+  margin-bottom: 20px;     
+  font-size: 1rem;       
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;  /
+  transition: border-color 0.3s ease;
+}
+form[name="leave_message"] input[type="text"]:focus,
+form[name="leave_message"] input[type="email"]:focus,
+form[name="leave_message"] textarea:focus {
+  border-color: #007BFF;    
+  outline: none;
+  box-shadow: 0 0 3px #007BFF;
+}
+form[name="leave_message"] textarea {
+  min-height: 100px;         
+  resize: vertical;         
+}
+form[name="leave_message"] button[type="submit"] {
+  background-color: #007BFF;
+  color: white;
+  padding: 14px 24px;       
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 120px;        
+  display: inline-block;
+  box-sizing: border-box;
+  user-select: none;
+}
+form[name="leave_message"] button[type="submit"]:hover,
+form[name="leave_message"] button[type="submit"]:focus {
+  background-color: #0056b3;
+  outline: none;
+}
+@media (max-width: 600px) {
+  form[name="leave_message"] input[type="text"],
+  form[name="leave_message"] input[type="email"],
+  form[name="leave_message"] textarea {
+    font-size: 1.2rem;       
+    padding: 16px 20px;      
+    margin-bottom: 24px;    
+  }
+  form[name="leave_message"] button[type="submit"] {
+    width: 100%;            
+    padding: 16px 0;
+    font-size: 1.3rem;     
+    min-width: auto;
+  }
+}
   }
   
   
