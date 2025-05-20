@@ -45,3 +45,31 @@ messageForm.addEventListener("submit", function(event) {
   messageList.appendChild(newMessage);
   messageForm.reset();
 });
+const GITHUB_USERNAME = 'CodeD9524';
+
+fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status} ${response.statusText}`);
+    }
+    return response.json();
+  })
+.then(repositories => { 
+    const projectSection = document.getElementById('Projects');
+    const projectList = projectSection.querySelector('#project-list');
+
+    if (!repositories || repositories.length === 0) {
+      projectSection.textContent = 'No projects found.';
+      return;
+    }
+    for (let i = 0; i < repositories.length; i++) {
+      let project = document.createElement('li');
+      project.innerText = repositories[i].name;
+      projectList.appendChild(project);
+    }
+  })
+  .catch(error => {
+    console.error('Fetch error:', error);
+    const projectSection = document.getElementById('projects');
+    projectSection.textContent = 'Failed to load projects. Please try again later.';
+  });
