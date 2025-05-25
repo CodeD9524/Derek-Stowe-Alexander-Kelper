@@ -57,13 +57,13 @@ fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
 .then((data) => { 
   const repositories = data
     const projectSection = document.getElementById('Projects');
-    const projectList = projectSection.querySelector('#project-list');
+    const projectList = projectSection.querySelector('ul');
 
     if (!repositories || repositories.length === 0) {
       projectSection.textContent = 'No projects found.';
       return;
     }
-    for (let i = 0; i <= repositories.length; i++) {
+    for (let i = 0; i < repositories.length; i++) {
       let project = document.createElement('li');
       project.innerText = repositories[i].name;
       projectList.appendChild(project);
