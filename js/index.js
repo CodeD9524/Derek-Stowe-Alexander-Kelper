@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const footer = document.createElement('footer');
-  let today = new Date();
-  let thisYear = today.getFullYear();
-  let copyright = document.createElement('p');
-  copyright.innerHTML = `© Derek ${thisYear}. All rights reserved.`;
-  footer.appendChild(copyright);
-  document.body.appendChild(footer);
+  const today = new Date();
+  const thisYear = today.getFullYear();
+  const copyright = document.getElementById('copyright');
+  if (copyright) {
+    copyright.innerHTML = `&copy; Derek ${thisYear}. All rights reserved.`;
+  }
 });
 const skills = ["HTML", "CSS", "Photoshop", "PowerPoint", "Excel", "Word"];
 const skillsSection = document.getElementById("Skills");
