@@ -65,10 +65,10 @@ fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
     for (let i = 0; i < repositories.length; i++) {
       let project = document.createElement('li');
       let projectLink = document.createElement('a');
-      projectLink.href = repositories[i].html_url;  // URL to the GitHub repo
-      projectLink.target = '_blank';  // Open in a new tab
-      projectLink.rel = 'noopener noreferrer';  // Security best practice
-      projectLink.innerText = repositories[i].name;  // Display repo name
+      projectLink.href = repositories[i].html_url; 
+      projectLink.target = '_blank';
+      projectLink.rel = 'noopener noreferrer'; 
+      projectLink.innerText = repositories[i].name;
       project.appendChild(projectLink);
       projectList.appendChild(project);
     }
