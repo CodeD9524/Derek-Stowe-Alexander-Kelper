@@ -47,7 +47,6 @@ messageForm.addEventListener("submit", function(event) {
   messageForm.reset();
 });
 const GITHUB_USERNAME = 'CodeD9524';
-
 fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
   .then(response => {
     if (!response.ok) {
@@ -59,23 +58,17 @@ fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
     const repositories = data;
     const projectSection = document.getElementById('Projects');
     const projectList = projectSection.querySelector('ul');
-
     if (!repositories || repositories.length === 0) {
       projectSection.textContent = 'No projects found.';
-      return;   // <-- Missing closing brace fixed here
+      return; 
     }
-
     for (let i = 0; i < repositories.length; i++) {
       let project = document.createElement('li');
-
-      // Create an anchor element for the clickable project link
       let projectLink = document.createElement('a');
       projectLink.href = repositories[i].html_url;  // URL to the GitHub repo
       projectLink.target = '_blank';  // Open in a new tab
       projectLink.rel = 'noopener noreferrer';  // Security best practice
       projectLink.innerText = repositories[i].name;  // Display repo name
-
-      // Append the anchor inside the list item
       project.appendChild(projectLink);
       projectList.appendChild(project);
     }
