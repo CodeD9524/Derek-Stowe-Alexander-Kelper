@@ -55,23 +55,33 @@ fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
     }
     return response.json();
   })
-.then((data) => { 
-  const repositories = data
+  .then((data) => { 
+    const repositories = data;
     const projectSection = document.getElementById('Projects');
     const projectList = projectSection.querySelector('ul');
 
     if (!repositories || repositories.length === 0) {
       projectSection.textContent = 'No projects found.';
-      return;
+      return;   // <-- Missing closing brace fixed here
     }
+
     for (let i = 0; i < repositories.length; i++) {
       let project = document.createElement('li');
-      project.innerText = repositories[i].name;
+
+      // Create an anchor element for the clickable project link
+      let projectLink = document.createElement('a');
+      projectLink.href = repositories[i].html_url;  // URL to the GitHub repo
+      projectLink.target = '_blank';  // Open in a new tab
+      projectLink.rel = 'noopener noreferrer';  // Security best practice
+      projectLink.innerText = repositories[i].name;  // Display repo name
+
+      // Append the anchor inside the list item
+      project.appendChild(projectLink);
       projectList.appendChild(project);
     }
   })
   .catch(error => {
     console.error('Fetch error:', error);
-    const projectSection = document.getElementById('projects');
+    const projectSection = document.getElementById('Projects');
     projectSection.textContent = 'Failed to load projects. Please try again later.';
   });

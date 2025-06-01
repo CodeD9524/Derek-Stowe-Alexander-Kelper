@@ -96,6 +96,8 @@ h2 {
   @media only screen and (max-width: 1300px) {
     body {
       background-color: rgb(19, 21, 22);
+      text-align: center;
+      color: #212328;
     } 
     #Experience {
       color: rgba(45, 212, 78, 0.6);
