@@ -1,10 +1,11 @@
-const footer = document.createElement('footer');
-let today = new Date();
-let thisYear = today.getFullYear();
-let copyright = document.createElement('p');
-copyright.innerHTML = `© Derek ${thisYear}. All rights reserved.`;
-footer.appendChild(copyright);
-document.body.appendChild(footer);
+document.addEventListener("DOMContentLoaded", () => {
+  const today = new Date();
+  const thisYear = today.getFullYear();
+  const copyright = document.getElementById('copyright');
+  if (copyright) {
+    copyright.innerHTML = `&copy; Derek ${thisYear}. All rights reserved.`;
+  }
+});
 const skills = ["HTML", "CSS", "Photoshop", "PowerPoint", "Excel", "Word"];
 const skillsSection = document.getElementById("Skills");
 let skillsList = skillsSection.querySelector("ul");
@@ -46,7 +47,6 @@ messageForm.addEventListener("submit", function(event) {
   messageForm.reset();
 });
 const GITHUB_USERNAME = 'CodeD9524';
-
 fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
   .then(response => {
     if (!response.ok) {
@@ -54,23 +54,27 @@ fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
     }
     return response.json();
   })
-.then((data) => { 
-  const repositories = data
+  .then((data) => { 
+    const repositories = data;
     const projectSection = document.getElementById('Projects');
     const projectList = projectSection.querySelector('ul');
-
     if (!repositories || repositories.length === 0) {
       projectSection.textContent = 'No projects found.';
-      return;
+      return; 
     }
     for (let i = 0; i < repositories.length; i++) {
       let project = document.createElement('li');
-      project.innerText = repositories[i].name;
+      let projectLink = document.createElement('a');
+      projectLink.href = repositories[i].html_url; 
+      projectLink.target = '_blank';
+      projectLink.rel = 'noopener noreferrer'; 
+      projectLink.innerText = repositories[i].name;
+      project.appendChild(projectLink);
       projectList.appendChild(project);
     }
   })
   .catch(error => {
     console.error('Fetch error:', error);
-    const projectSection = document.getElementById('projects');
+    const projectSection = document.getElementById('Projects');
     projectSection.textContent = 'Failed to load projects. Please try again later.';
   });

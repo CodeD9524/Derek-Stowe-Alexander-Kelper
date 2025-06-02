@@ -13,9 +13,21 @@ h2 {
  font-style: italic;
  padding-bottom: 52px;
 }
-.Experience-section li {
-    display: block;
-  }
+#Experience {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+#Experience .experience-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
   #bout {
     text-align: right;
     color: aliceblue;
@@ -30,40 +42,62 @@ h2 {
     text-align: center;
     padding: 10px;
   }
-  /* Projects Section Container */
 #Projects {
   padding: 20px;
   background-color: #fafafa;
 }
 
-/* Section Title */
 #Projects h2 {
   font-size: 2rem;
   color: #222;
   margin-bottom: 15px;
   font-weight: 700;
 }
-
-/* Projects List */
-#project-list {
-  list-style-type: none;
+#Projects ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
   padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  list-style-type: none;
 }
-#project-list li {
-  background-color: #535a1f67;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  padding: 15px;
-  flex: 1 1 calc(33.333% - 40px);
+#Projects ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1)
+}
+#Messages ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3997a3;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}  
+#Messages ul li button {
+  background-color: #be6a6a;
+  border: none;
+  color: rgb(71, 118, 63);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem
+}
+#Messages ul li button:hover {
+
+  background-color: #ff1744;
+
 }
   /* BIG tablet */
   @media only screen and (max-width: 1300px) {
     body {
       background-color: rgb(19, 21, 22);
+      text-align: center;
+      color: #212328;
     } 
     #Experience {
       color: rgba(45, 212, 78, 0.6);
@@ -136,15 +170,16 @@ h2 {
   #Skills ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 1rem;
     padding: 0;
-    list-style-type: none; 
+    list-style-type: none;
   }
   #Skills ul li {
-    margin: 10px 15px;
-    padding: 5px 10px;
-    background-color: #e0e0e0; 
-    border-radius: 4px;
+    background-color: #007acc;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
   }
   @media (max-width: 450px) {
   
@@ -217,4 +252,13 @@ form[name="leave_message"] button[type="submit"]:focus {
     padding: 16px 0;
     font-size: 1.3rem;     
     min-width: auto;
+  }
+  #Experience {
+    grid-template-columns: 1fr;
+  }
+  #Projects ul {
+    grid-template-columns: 1fr;
+  }
+  #Skills ul {
+    justify-content: center;
   }
